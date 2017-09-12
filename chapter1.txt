@@ -1,3 +1,120 @@
-# My First Chapter
+# Chapter 1 - Hello World
 
-Hello Leanpub!
+Let's imagine the following situation in a Payment system:
+
+- We should call the Payment Service to get some information
+- It can not take more than 5 seconds
+- If it takes more than 5 seconds, another Payment Service must be called as a fallback
+
+We will have 2 Payment Services
+
+- PayPal that is the default payment 
+- Stripes that is the fallback payment in case that PayPal is out
+
+```java
+public class PaymentPayPalService {
+
+	public String getProvider() {
+		return "PayPal";
+	}
+
+}
+```
+
+And the Stripes provider
+
+```java
+public class PaymentServiceStripesFallback {
+
+	public String getProvider() {
+		return "Stripes";
+	}
+
+}
+```
+
+Easy until now.
+
+Now we will create a class that calls the desired PaymentService
+
+```java
+public class Payment {
+
+	private PaymentPayPalService paymentService;
+
+	public Payment(PaymentPayPalService paymentService) {
+		this.paymentService = paymentService;
+	}
+
+	public String getPaymentProvider() {
+		return paymentService.getProvider();
+	}
+
+}
+```
+
+Better test it with...a Test, isn't it?
+
+```java
+public class PaymentServiceTest {
+
+	@Test
+	public void shouldCallThePaymentServiceDefault() throws Exception {
+		PaymentPayPalService paymentService = new PaymentPayPalService();
+
+		Payment payment = new Payment(paymentService);
+
+		String paymentProvider = payment.getPaymentProvider();
+
+		assertEquals("PayPal", paymentProvider);
+	}
+
+}
+```
+
+Our test is passing perfect! Now, let's simulate a problem, causing a timeout.
+
+Just to reuse the "timeout" code, let's create a Pause class: 
+
+```java
+public class Pause {
+
+	public static void waitFor(int timeInSeconds) {
+		try {
+			TimeUnit.SECONDS.sleep(timeInSeconds);
+		} catch (InterruptedException e) {
+			throw new RuntimeException("Error on Pause");
+		}
+	}
+
+}
+```
+
+Now, let's modify the Payment class:
+
+```java
+public class PaymentPayPalService {
+
+	public String getProvider() {
+		Pause.waitFor(5);
+
+		return "PayPal";
+	}
+
+}
+```
+
+Running the test...and...it took 5 seconds! Terrible for our business! 
+
+Hystrix comes in!
+
+Hystrix has the concept of a **Command** that must be used when we would like to wrap a logic that should
+be treat by Hystrix. 
+
+We should use the **HystrixCommand** or **HystrixObservableCommand** class.
+
+So, let's wrap the PaymentService:
+
+```java
+
+```
