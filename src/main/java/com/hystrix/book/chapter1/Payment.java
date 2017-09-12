@@ -17,4 +17,9 @@ public class Payment extends HystrixCommand<String> {
 		return paymentService.getProvider();
 	}
 
+	@Override
+	protected String getFallback() {
+		return new PaymentServiceStripesFallback().getProvider();
+	}
+
 }

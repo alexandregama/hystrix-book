@@ -174,9 +174,41 @@ Notice the message:
 - Hystrix didn't wait 5 seconds
 - Hystrix identified that a Timeout occurred while calling the service
 
-Important thing here:
+Important things to notice here:
 
 - Hystrix failed fast!
 
 By default, Hystrix waits just **1 second** before throw an exception. Don't worry, we can change it.
 
+- Hystrix tried to call the fallback
+
+Hystrix tries to call the fallback method. This means that we can indicate to Hystrix which method should be called when things go wrong.
+
+**Implementing the Fallback method**
+
+```java
+public class Payment extends HystrixCommand<String> {
+
+	@Override
+	protected String getFallback() {
+		return new PaymentServiceStripesFallback().getProvider();
+	}
+
+}
+```
+
+Let's run the test again:
+
+```
+org.junit.ComparisonFailure: expected:<[PayPal]> but was:<[Stripes]>
+```
+
+We got an expected error, because the Fallback service will be the Stripes provider, not the PayPal. Let's change the test:
+
+```java
+assertEquals("Stripes", paymentProvider);
+```
+
+Great!
+
+Notice again that Hystrix just waits 1 second to understand that a Timeout happens. Fail Fast!

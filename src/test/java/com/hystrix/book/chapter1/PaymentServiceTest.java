@@ -16,7 +16,7 @@ public class PaymentServiceTest {
 
 		String paymentProvider = payment.execute();
 
-		assertEquals("PayPal", paymentProvider);
+		assertEquals("Stripes", paymentProvider);
 	}
 
 }
