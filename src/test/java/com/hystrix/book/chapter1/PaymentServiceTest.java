@@ -4,15 +4,17 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.netflix.hystrix.HystrixCommand;
+
 public class PaymentServiceTest {
 
 	@Test
 	public void shouldCallThePaymentServiceDefault() throws Exception {
 		PaymentPayPalService paymentService = new PaymentPayPalService();
 
-		Payment payment = new Payment(paymentService);
+		HystrixCommand<String> payment = new Payment(paymentService);
 
-		String paymentProvider = payment.getPaymentProvider();
+		String paymentProvider = payment.execute();
 
 		assertEquals("PayPal", paymentProvider);
 	}

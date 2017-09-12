@@ -116,5 +116,67 @@ We should use the **HystrixCommand** or **HystrixObservableCommand** class.
 So, let's wrap the PaymentService:
 
 ```java
+public class Payment extends HystrixCommand<String> {
+
+	private PaymentPayPalService paymentService;
+
+	public Payment(PaymentPayPalService paymentService) {
+		super(HystrixCommandGroupKey.Factory.asKey("PayPal"));
+		this.paymentService = paymentService;
+	}
+
+	@Override
+	protected String run() throws Exception {
+		return paymentService.getProvider();
+	}
+
+}
+```
+
+Remove the line that simulates the timeout and let's update our test:
+
+```java
+@Test
+public void shouldCallThePaymentServiceDefault() throws Exception {
+	PaymentPayPalService paymentService = new PaymentPayPalService();
+
+	HystrixCommand<String> payment = new Payment(paymentService);
+
+	String paymentProvider = payment.execute();
+
+	assertEquals("PayPal", paymentProvider);
+}
+```
+
+Awesome! Everything is ok.
+
+Let's add the **Pause** again and let's run the code again:
+
+Terrible! An error occurred:
 
 ```
+com.netflix.hystrix.exception.HystrixRuntimeException: Payment timed-out and no fallback available.
+	at com.netflix.hystrix.AbstractCommand$22.call(AbstractCommand.java:819)
+	...
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.concurrent.TimeoutException
+	at com.netflix.hystrix.AbstractCommand.handleTimeoutViaFallback(AbstractCommand.java:997)
+	at com.netflix.hystrix.AbstractCommand.access$500(AbstractCommand.java:60)
+	at com.netflix.hystrix.AbstractCommand$12.call(AbstractCommand.java:610)
+	at com.netflix.hystrix.AbstractCommand$12.call(AbstractCommand.java:601)
+	at rx.internal.operators.OperatorOnErrorResumeNextViaFunction$4.onError(OperatorOnErrorResumeNextViaFunction.java:140)
+	... 15 more
+
+```
+
+Notice the message:
+
+- Hystrix didn't wait 5 seconds
+- Hystrix identified that a Timeout occurred while calling the service
+
+Important thing here:
+
+- Hystrix failed fast!
+
+By default, Hystrix waits just **1 second** before throw an exception. Don't worry, we can change it.
+
