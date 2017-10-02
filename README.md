@@ -72,6 +72,11 @@ Hystrix uses separate, per-dependency thread pools as a way of constraining any 
 
 ![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/isolation-options-1280.png)
 
+### Semaphores
+
+- You can use semaphores (or counters) to limit the number of concurrent calls to any given dependency, instead of using thread pool/queue sizes
+- This allows Hystrix to shed load without using thread pools but it does not allow for timing out and walking away
+
 # Tips
 
 - There is no way to stop latent threads
