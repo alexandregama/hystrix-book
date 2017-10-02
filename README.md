@@ -77,6 +77,29 @@ Hystrix uses separate, per-dependency thread pools as a way of constraining any 
 - You can use semaphores (or counters) to limit the number of concurrent calls to any given dependency, instead of using thread pool/queue sizes
 - This allows Hystrix to shed load without using thread pools but it does not allow for timing out and walking away
 
+**Note**: if a dependency is isolated with a semaphore and then becomes latent, the parent threads will remain blocked until the underlying network calls timeout.
+
+### Request Collapsing
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/collapser-1280.png)
+
+Use request collapsing to reduce the number of threads and network connections needed to perform concurrent HystrixCommand executions
+
+By pushing the collapsing logic down to the Hystrix layer, it doesn’t matter how you create the object model, in what order the calls are made, or whether different developers know about optimizations being done or even needing to be done.
+
+The getSomeAttribute() method can be put wherever it fits best and be called in whatever manner suits the usage pattern and the collapser will automatically batch calls into time windows.
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/collapser-flow-1280.png)
+
+### Request Caching
+
+HystrixCommand and HystrixObservableCommand implementations can define a cache key which is then used to de-dupe calls within a request context in a concurrent-aware manner.
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/request-cache-1280.png)
+
+- Data retrieval is consistent throughout a request.
+- Eliminates duplicate thread executions.
+
 # Tips
 
 - There is no way to stop latent threads
