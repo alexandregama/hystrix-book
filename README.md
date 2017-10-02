@@ -43,6 +43,8 @@ In distributed systems, failures will occur. Hystrix will:
 
 # How it Works?
 
+Hystrix Response:
+
 ![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/hystrix-return-flow.png)
 
 ### Getting the Fallback
@@ -55,6 +57,10 @@ In distributed systems, failures will occur. Hystrix will:
 In the case of a HystrixCommand, to provide fallback logic you implement HystrixCommand.getFallback() which returns a single fallback value.
 
 In the case of a HystrixObservableCommand, to provide fallback logic you implement HystrixObservableCommand.resumeWithFallback() which returns an Observable that may emit a fallback value or values.
+
+### Hystrix Circuit Breaker
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/circuit-breaker-1280.png)
 
 # Tips
 
