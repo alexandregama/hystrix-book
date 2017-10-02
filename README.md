@@ -62,6 +62,16 @@ In the case of a HystrixObservableCommand, to provide fallback logic you impleme
 
 ![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/circuit-breaker-1280.png)
 
+### Threads and Thread Pool
+
+Hystrix uses separate, per-dependency thread pools as a way of constraining any given dependency so latency on the underlying executions will saturate the available threads only in that pool.
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/request-example-with-latency-1280.png)
+
+- Thread Pool Isolation
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/isolation-options-1280.png)
+
 # Tips
 
 - There is no way to stop latent threads
