@@ -30,6 +30,7 @@ In distributed systems, failures will occur. Hystrix will:
 - Optimizing for time-to-discovery through near real-time metrics, monitoring, and alerting
 - Optimizing for time-to-recovery by means of low latency propagation of configuration changes and support for dynamic property changes in most aspects of Hystrix, which allows you to make real-time operational modifications with low latency feedback loops.
 - Protecting against failures in the entire dependency client execution, not just in the network traffic.
+- In general a circuit breaker implements three types of state: open, half-open, and closed:
 
 ### How does Hystrix accomplish its goals?
 
