@@ -112,3 +112,29 @@ Please note that there's no way to force the latent thread to stop work - the be
 Write your fallback to provide a generic response, without any network dependency, from an in-memory cache or by means of other static logic. If you **must use a network call in the fallback**, you should do so by means of another HystrixCommand or HystrixObservableCommand.
 
 It is a poor practice to implement a fallback implementation that can fail. You should implement your fallback such that it is not performing any logic that could fail.
+
+# Hystrix Operations
+
+Hystrix is not only a tool for resilience engineering but also for operations.
+
+![](https://github.com/Netflix/Hystrix/wiki/images/thread-configuration-640.png)
+
+Granularity of Problems:
+
+- Client machine garbage collection (your machine does a garbage collection in the middle of a request)
+- Service machine garbage collection (the remote server does a garbage collection in the middle of a request to it)
+network issues
+- Different payload sizes for different request arguments
+cache misses
+- Bursty call patterns
+- New machines starting up (deployments, auto-scale events) and “warming up”
+
+This is one of the reasons why the circuit breaker exists — to “release the pressure” on underlying systems to let them recover instead of pounding them with more requests in retry loops, hung connections, and the like.
+
+### Dependency Failure with Fallback
+
+![](https://github.com/Netflix/Hystrix/wiki/images/ops-getbookmarks-640.png)
+
+### Cascading Dependency Failures
+
+![](https://github.com/Netflix/Hystrix/wiki/images/ops-ab-640.png)
