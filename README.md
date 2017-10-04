@@ -138,3 +138,9 @@ This is one of the reasons why the circuit breaker exists — to “release the 
 ### Cascading Dependency Failures
 
 ![](https://github.com/Netflix/Hystrix/wiki/images/ops-ab-640.png)
+
+# Metrics Storage
+
+Here's an illustration of commands executing and writing metrics :
+
+![](https://github.com/Netflix/Hystrix/wiki/images/metrics-generation.png)
