@@ -98,7 +98,7 @@ Time: 10 minutes
 
 # Hystrix Architecture Low Level
 
-Time: 15 minutes
+Time: 10 minutes
 
 ### Threads and Thread Pool
 
@@ -145,8 +145,6 @@ Time: 5 minutes
 
 ![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/ops-ab-640.png)
 
-# Tips
+# Code
 
-- There is no way to stop latent threads
-- Writing Fallbacks with Network
-
+Time: 10 minutes
