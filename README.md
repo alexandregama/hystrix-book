@@ -7,6 +7,9 @@ In distributed systems, failures will occur. Hystrix will:
 - Isolated points of access between services
 - Stop cascading failures across them
 - Provide fallback options
+- Bulkheading
+
+![](http://jonasboner.com/images/posts/bla-bla-microservices-bla-bla/bla_bla_microservices_bla_bla_pdf__page_7_of_31_.png)
 
 **At Netflix**
 
