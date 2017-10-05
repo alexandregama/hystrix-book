@@ -1,6 +1,6 @@
 # Microservices Problems
 
-Time: 10 minutes
+Time: 8 minutes
 
 ![](https://pbs.twimg.com/media/B04S3VPIAAAwawm.jpg)
 
@@ -38,7 +38,7 @@ Time: 10 minutes
 
 # Hystrix
 
-Time: 10 minutes
+Time: 8 minutes
 
 ![](https://camo.githubusercontent.com/e871b5d002a9699e7a2d9fa0178af5c72f0743e0/68747470733a2f2f6e6574666c69782e6769746875622e636f6d2f487973747269782f696d616765732f687973747269782d6c6f676f2d7461676c696e652d3835302e706e67)
 
@@ -70,7 +70,7 @@ This is the result: Hystrix will handle the problems, and we define what is a re
 
 # Hystrix Architecture High Level
 
-Time: 10 minutes
+Time: 8 minutes
 
 - Circuit Breaker
 
@@ -98,7 +98,7 @@ Time: 10 minutes
 
 # Hystrix Architecture Low Level
 
-Time: 10 minutes
+Time: 8 minutes
 
 ### Threads and Thread Pool
 
