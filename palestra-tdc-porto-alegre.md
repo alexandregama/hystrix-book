@@ -133,6 +133,18 @@ Time: 15 minutes
 - Eliminates duplicate thread executions
 - Data retrieval is consistent throughout a request.
 
+# Hystrix Metrics
+
+Time: 5 minutes
+
+- Metrics Storage
+
+- Metrics Streaming
+
+- Dashboard Monitoring Real Time
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/ops-ab-640.png)
+
 # Tips
 
 - There is no way to stop latent threads
