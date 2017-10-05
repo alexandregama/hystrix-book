@@ -62,6 +62,12 @@ Big Picture
 
 ![](https://github.com/Netflix/Hystrix/wiki/images/hystrix-command-flow-chart-640.png)
 
+![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-1.png?raw=true)
+
+![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-2.png?raw=true)
+
+![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-3.png?raw=true)
+
 # Hystrix Architecture Low Level
 
 ### Threads and Thread Pool
