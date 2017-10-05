@@ -89,7 +89,13 @@ Granular
 
 ### Request Collapsing
 
-![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/collapser-1280.png)
+- Without Collapsing
+
+![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-Collapsing-1.png?raw=true)
+
+- With Collapsing
+
+![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-Collapsing-2.png?raw=true)
 
 ### Request Caching
 
