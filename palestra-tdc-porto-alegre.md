@@ -106,6 +106,10 @@ Time: 15 minutes
 
 ![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/isolation-options-1280.png)
 
+- Isolation
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/request-example-with-latency-1280.png)
+
 ### Semaphore
 
 - You can use semaphores (or counters) to limit the number of concurrent calls to any given dependency, instead of using thread pool/queue sizes
