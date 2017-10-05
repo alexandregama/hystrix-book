@@ -58,13 +58,19 @@ Granular
 
 - Flow Chart
 
-Big Picture
+**Big Picture**
 
 ![](https://github.com/Netflix/Hystrix/wiki/images/hystrix-command-flow-chart-640.png)
 
+**Part 1**
+
 ![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-1.png?raw=true)
 
+**Part 2**
+
 ![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-2.png?raw=true)
+
+**Part 3**
 
 ![](https://github.com/alexandregama/hystrix-book/blob/master/Hystrix-3.png?raw=true)
 
