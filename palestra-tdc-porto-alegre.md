@@ -2,6 +2,10 @@
 
 Time: 5 minutes
 
+![](https://pbs.twimg.com/media/B04S3VPIAAAwawm.jpg)
+
+### Contextualization
+
 ![](http://jonasboner.com/images/posts/bla-bla-microservices-bla-bla/bla_bla_microservices_bla_bla_pdf__page_7_of_31_.png)
 
 - Bulkheading
@@ -10,6 +14,8 @@ Time: 5 minutes
 
 - Circuit Breaker
 
+### Problemns
+
 - Cascading Failures
 
 ![](https://github.com/Netflix/Hystrix/wiki/images/soa-1-640.png)
@@ -17,11 +23,22 @@ Time: 5 minutes
 ![](https://github.com/Netflix/Hystrix/wiki/images/soa-2-640.png)
 
 - Single point of Failure
+
 - Fallbacks
+
 - Failure Definition
+
 - Domino Effect
 
+### Failure? What is it?
+
+- Definition of Failure?
+
+![](Try Catch picture)
+
 # Hystrix
+
+![](https://camo.githubusercontent.com/e871b5d002a9699e7a2d9fa0178af5c72f0743e0/68747470733a2f2f6e6574666c69782e6769746875622e636f6d2f487973747269782f696d616765732f687973747269782d6c6f676f2d7461676c696e652d3835302e706e67)
 
 ### What is Hystrix
 
