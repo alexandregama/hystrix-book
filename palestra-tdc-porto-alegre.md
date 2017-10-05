@@ -78,10 +78,21 @@ Granular
 
 ### Threads and Thread Pool
 
+- Thread Pool Isolation
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/isolation-options-1280.png)
+
 ### Semaphore
+
+- You can use semaphores (or counters) to limit the number of concurrent calls to any given dependency, instead of using thread pool/queue sizes
+- This allows Hystrix to shed load without using thread pools but it does not allow for timing out and walking away
 
 ### Request Collapsing
 
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/collapser-1280.png)
+
 ### Request Caching
+
+![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/request-cache-1280.png)
 
 
