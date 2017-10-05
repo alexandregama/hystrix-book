@@ -101,4 +101,11 @@ Granular
 
 ![](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/request-cache-1280.png)
 
+- Eliminates duplicate thread executions
+- Data retrieval is consistent throughout a request.
+
+# Tips
+
+- There is no way to stop latent threads
+- Writing Fallbacks with Network
 
