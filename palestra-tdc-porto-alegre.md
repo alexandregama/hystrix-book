@@ -1,6 +1,6 @@
 # Microservices Problems
 
-Time: 5 minutes
+Time: 10 minutes
 
 ![](https://pbs.twimg.com/media/B04S3VPIAAAwawm.jpg)
 
@@ -38,27 +38,30 @@ Time: 5 minutes
 
 # Hystrix
 
+Time: 10 minutes
+
 ![](https://camo.githubusercontent.com/e871b5d002a9699e7a2d9fa0178af5c72f0743e0/68747470733a2f2f6e6574666c69782e6769746875622e636f6d2f487973747269782f696d616765732f687973747269782d6c6f676f2d7461676c696e652d3835302e706e67)
 
 ### What is Hystrix
 
-Time: 10 minutes
+In distributed systems, failures will occur
 
-In distributed systems, failures will occur. Hystrix will:
+Hystrix will:
 
 - Isolate points of access between services
+
 - Stop cascading failures across them
+
 - Provide fallback options
+
+- Graceful Degradation
+
 - Domino Effect
+
 - Bulkheading
+
 - Circuit Breaker
 
-### What is Hystrix for?
-
-- Give protection from and control over latency and failure from dependencies accessed
-- Stop cascading failures in a complex distributed system
-- Fail Fast and rapidly recover
-- Fallback and graceful degrade when possible
 - Enable near real-time monitoring, alerting and operational control
 
 This is the result: Hystrix will handle the problems, and we define what is a real problem:
@@ -67,9 +70,11 @@ This is the result: Hystrix will handle the problems, and we define what is a re
 
 # Hystrix Architecture High Level
 
+Time: 10 minutes
+
 - Circuit Breaker
 
-Granular 
+**Granular**
 
 ![](http://www.ebaytechblog.com/wp-content/uploads/2015/08/circuit_breaker_state_diagram.gif)
 
@@ -93,6 +98,8 @@ Granular
 
 # Hystrix Architecture Low Level
 
+Time: 15 minutes
+
 ### Threads and Thread Pool
 
 - Thread Pool Isolation
@@ -102,6 +109,7 @@ Granular
 ### Semaphore
 
 - You can use semaphores (or counters) to limit the number of concurrent calls to any given dependency, instead of using thread pool/queue sizes
+
 - This allows Hystrix to shed load without using thread pools but it does not allow for timing out and walking away
 
 ### Request Collapsing
