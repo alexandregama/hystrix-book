@@ -1,5 +1,7 @@
 # Microservices Problems
 
+Time: 5 minutes
+
 ![](http://jonasboner.com/images/posts/bla-bla-microservices-bla-bla/bla_bla_microservices_bla_bla_pdf__page_7_of_31_.png)
 
 - Bulkheading
@@ -23,6 +25,8 @@
 
 ### What is Hystrix
 
+Time: 10 minutes
+
 In distributed systems, failures will occur. Hystrix will:
 
 - Isolate points of access between services
@@ -40,10 +44,32 @@ In distributed systems, failures will occur. Hystrix will:
 - Fallback and graceful degrade when possible
 - Enable near real-time monitoring, alerting and operational control
 
-# Hystrix Architecture
+This is the result: Hystrix will handle the problems, and we define what is a real problem:
+
+![](https://github.com/Netflix/Hystrix/wiki/images/soa-4-isolation-640.png)
+
+# Hystrix Architecture High Level
+
+- Circuit Breaker
+
+Granular 
 
 ![](http://www.ebaytechblog.com/wp-content/uploads/2015/08/circuit_breaker_state_diagram.gif)
 
+- Flow Chart
 
+Big Picture
+
+![](https://github.com/Netflix/Hystrix/wiki/images/hystrix-command-flow-chart-640.png)
+
+# Hystrix Architecture Low Level
+
+### Threads and Thread Pool
+
+### Semaphore
+
+### Request Collapsing
+
+### Request Caching
 
 
