@@ -36,6 +36,12 @@ Time: 8 minutes
 
 ![](Try Catch picture)
 
+**Types of Errors**
+
+- 10 Problems in 100 Requests?
+- 5% Less Throughput
+- Incresing 2% Timeout
+
 # Hystrix
 
 Time: 8 minutes
