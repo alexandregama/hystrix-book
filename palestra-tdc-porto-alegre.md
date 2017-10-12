@@ -48,12 +48,14 @@ Time: 8 minutes
 
 ![](https://camo.githubusercontent.com/e871b5d002a9699e7a2d9fa0178af5c72f0743e0/68747470733a2f2f6e6574666c69782e6769746875622e636f6d2f487973747269782f696d616765732f687973747269782d6c6f676f2d7461676c696e652d3835302e706e67)
 
-### Hystrix History
+### What is Hystrix
 
 - Netflix
 - Netflix Numbers here
 
-### What is Hystrix
+Definition: Latency and Fault Tolerance Library
+
+### What is Hystrix for?
 
 In distributed systems, failures will occur
 
