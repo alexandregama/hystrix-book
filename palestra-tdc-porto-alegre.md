@@ -125,9 +125,13 @@ Time: 8 minutes
 
 ### Semaphore
 
-- You can use semaphores (or counters) to limit the number of concurrent calls to any given dependency, instead of using thread pool/queue sizes
+- Limit the number of concurrent calls
 
-- This allows Hystrix to shed load without using thread pools but it does not allow for timing out and walking away
+- Instead of using thread pool/queue sizes
+
+- Shed load without using thread pools
+
+- Does not allow for timing out and walking away
 
 ### Request Collapsing
 
