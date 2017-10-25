@@ -50,8 +50,7 @@ Time: 8 minutes
 
 ### What is Hystrix
 
-- Netflix
-- Netflix Numbers here
+- Netflix in 2011
 
 Definition: Latency and Fault Tolerance Library
 
