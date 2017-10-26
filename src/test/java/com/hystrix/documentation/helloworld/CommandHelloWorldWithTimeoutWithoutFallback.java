@@ -1,4 +1,4 @@
-package com.hystrix.documentation.part1;
+package com.hystrix.documentation.helloworld;
 
 import com.hystrix.book.chapter1.Pause;
 import com.netflix.hystrix.HystrixCommand;
