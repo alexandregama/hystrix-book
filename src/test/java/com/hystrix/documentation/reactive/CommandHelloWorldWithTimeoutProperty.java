@@ -15,13 +15,14 @@ public class CommandHelloWorldWithTimeoutProperty extends HystrixCommand<String>
 	public CommandHelloWorldWithTimeoutProperty(String name) {
 		super(Setter
 				.withGroupKey(HystrixCommandGroupKey.Factory.asKey("CommandHelloWorldWithTimeoutProperty"))
-				.andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(2_000))
-				);
+				.andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(2_000)));
 		this.name = name;
 	}
 
 	@Override
 	protected String run() throws Exception {
+		System.out.println("Executing Thread: " + Thread.currentThread().getName());
+
 		Pause.waitFor(1);
 
 		return "Hello " + name;

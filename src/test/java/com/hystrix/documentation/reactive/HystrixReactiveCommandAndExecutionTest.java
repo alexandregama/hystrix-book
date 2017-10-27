@@ -91,7 +91,7 @@ public class HystrixReactiveCommandAndExecutionTest {
 				}
 			});
 
-		System.out.println("Executing Another Action..");
+		System.out.println("Executing Another Action...on Thread: " + Thread.currentThread().getName());
 
 		Pause.waitFor(3);
 	}
