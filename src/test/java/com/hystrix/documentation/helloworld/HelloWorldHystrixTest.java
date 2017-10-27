@@ -1,4 +1,4 @@
-package com.hystrix.documentation.part1;
+package com.hystrix.documentation.helloworld;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
