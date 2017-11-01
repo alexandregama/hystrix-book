@@ -38,12 +38,11 @@ public class HystrixUserCommandCollapser extends HystrixCollapser<List<User>, Us
 
 	@Override
 	protected void mapResponseToRequests(List<User> batchResponse, Collection<CollapsedRequest<User, Long>> requests) {
-		int count = 0;
-
-		for (CollapsedRequest<User, Long> request: requests) {
-			request.setResponse(batchResponse.get(count));
-			count++;
-		}
+		requests.forEach(request -> {
+			Long argument = request.getArgument();
+			User user = batchResponse.get(argument.intValue());
+			request.setResponse(user);
+		});
 	}
 
 	private static final class BatchCommand extends HystrixCommand<List<User>> {
@@ -56,7 +55,9 @@ public class HystrixUserCommandCollapser extends HystrixCollapser<List<User>, Us
 			super(Setter
 					.withGroupKey(HystrixCommandGroupKey.Factory.asKey("BatchCommandGroupKey"))
 					.andCommandKey(HystrixCommandKey.Factory.asKey("BatchCommandKey"))
-					.andCommandPropertiesDefaults(HystrixCommandProperties.defaultSetter().withExecutionTimeoutInMilliseconds(30_000)));
+					.andCommandPropertiesDefaults(HystrixCommandProperties
+							.defaultSetter()
+							.withExecutionTimeoutInMilliseconds(30_000)));
 			this.requests = requests;
 		}
 
