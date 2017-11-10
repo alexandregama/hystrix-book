@@ -8,7 +8,7 @@ public class CommandRequestCache extends HystrixCommand<Boolean> {
 	private Integer value;
 
 	protected CommandRequestCache(Integer value) {
-		super(HystrixCommandGroupKey.Factory.asKey("CommandRequestCache"));
+		super(HystrixCommandGroupKey.Factory.asKey("PaymentCommandRequestCache"));
 		this.value = value;
 	}
 
